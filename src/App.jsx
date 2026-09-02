@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Rewards from './pages/Rewards';
 import ProductDetails from './pages/ProductDetails';
 import CollectPoints from './pages/CollectPoints';
+import About from './pages/About';
 import './App.css';
 
 function App() {
@@ -74,6 +75,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/rewards" element={<Rewards points={points} />} />
         <Route path="/collect-points" element={<CollectPoints />} />
+        <Route path="/about" element={<About />} />
         <Route 
           path="/product/:id" 
           element={
