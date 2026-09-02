@@ -32,9 +32,9 @@ const ProductDetails = ({ points, handleCashPurchase, handlePointsPurchase }) =>
         &rarr; العودة للمنتجات
       </button>
 
-      <div style={{display: 'flex', flexWrap: 'wrap', gap: '50px', background: 'var(--white)', padding: '40px', borderRadius: '30px 25px 35px 25px', boxShadow: '0 15px 40px rgba(0,0,0,0.04)', border: '1px solid rgba(67, 68, 32, 0.05)'}}>
+      <div className="product-details-container" style={{display: 'flex', flexWrap: 'wrap', background: 'var(--white)', padding: '40px', borderRadius: '30px 25px 35px 25px', boxShadow: '0 15px 40px rgba(0,0,0,0.04)', border: '1px solid rgba(67, 68, 32, 0.05)'}}>
         
-        <div style={{flex: '1 1 450px'}}>
+        <div className="product-details-image-container" style={{flex: '1 1 450px'}}>
           <div className="product-image-wrapper" style={{margin: 0, borderRadius: '20px 25px 22px 18px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.05)'}}>
             <img src={product.image} alt={product.title} style={{width: '100%', height: 'auto', display: 'block'}} onError={(e) => { e.target.style.display='none' }} />
           </div>

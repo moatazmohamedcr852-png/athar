@@ -24,7 +24,7 @@ const CollectPoints = () => {
         </p>
       </div>
       
-      <div style={{display: 'flex', flexDirection: 'column', gap: '25px'}}>
+      <div className="collect-points-container" style={{display: 'flex', flexDirection: 'column'}}>
         
         {/* Card 1: Purchases */}
         <div style={{background: 'var(--white)', padding: '30px', borderRadius: '25px', boxShadow: '0 8px 25px rgba(0,0,0,0.04)', display: 'flex', gap: '25px', alignItems: 'center', transition: 'transform 0.3s ease'}} className="hover-lift">
