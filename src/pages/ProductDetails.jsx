@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { MOCK_PRODUCTS } from '../data';
 
-const ProductDetails = ({ points, handleCashPurchase, handlePointsPurchase }) => {
+const ProductDetails = ({ points, handleCashPurchase, handlePointsPurchase, addToCart }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   
@@ -24,6 +24,11 @@ const ProductDetails = ({ points, handleCashPurchase, handlePointsPurchase }) =>
     handlePointsPurchase(product.points);
     alert('تم استبدال النقاط بنجاح! شكراً لك.');
     navigate('/rewards');
+  };
+
+  const onAddToCart = () => {
+    addToCart(product);
+    alert('تم إضافة المنتج إلى السلة بنجاح!');
   };
 
   return (
@@ -64,27 +69,34 @@ const ProductDetails = ({ points, handleCashPurchase, handlePointsPurchase }) =>
             </div>
           </div>
 
-          <div style={{marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '20px'}}>
-            <button className="btn-primary" style={{width: '100%', padding: '16px', fontSize: '18px'}} onClick={onCashPurchase}>
-              💳 شراء نقداً (+500 نقطة مكافأة)
+          <div style={{marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '15px'}}>
+            <button className="btn-primary" style={{width: '100%', padding: '16px', fontSize: '18px'}} onClick={onAddToCart}>
+              🛒 أضف إلى السلة
             </button>
             
-            <button 
-              className={`btn-outline ${!canBuyWithPoints ? 'disabled' : ''}`} 
-              style={{
-                width: '100%', 
-                padding: '16px', 
-                fontSize: '18px',
-                borderColor: canBuyWithPoints ? 'var(--olive-dark)' : '#C0C0C0', 
-                color: canBuyWithPoints ? 'var(--olive-dark)' : '#A0A0A0', 
-                cursor: canBuyWithPoints ? 'pointer' : 'not-allowed',
-                background: canBuyWithPoints ? 'transparent' : 'rgba(0,0,0,0.02)'
-              }} 
-              disabled={!canBuyWithPoints}
-              onClick={onPointsPurchase}
-            >
-              ⭐ استبدال بالنقاط {canBuyWithPoints ? '' : '(نقاط غير كافية)'}
-            </button>
+            <div style={{display: 'flex', gap: '15px'}}>
+              <button className="btn-outline" style={{flex: 1, padding: '12px', fontSize: '16px', background: 'var(--gray-light)', border: 'none'}} onClick={onCashPurchase}>
+                شراء سريع نقداً
+              </button>
+              
+              <button 
+                className={`btn-outline ${!canBuyWithPoints ? 'disabled' : ''}`} 
+                style={{
+                  flex: 1, 
+                  padding: '12px', 
+                  fontSize: '16px',
+                  border: '1px solid',
+                  borderColor: canBuyWithPoints ? 'var(--olive-dark)' : '#C0C0C0', 
+                  color: canBuyWithPoints ? 'var(--olive-dark)' : '#A0A0A0', 
+                  cursor: canBuyWithPoints ? 'pointer' : 'not-allowed',
+                  background: 'transparent'
+                }} 
+                disabled={!canBuyWithPoints}
+                onClick={onPointsPurchase}
+              >
+                استبدال سريع
+              </button>
+            </div>
           </div>
           
         </div>
