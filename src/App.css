@@ -568,11 +568,38 @@
   .product-details-container {
     flex-direction: column;
     gap: 30px;
-    padding: 20px !important;
+    padding: 0 !important; /* Remove padding to let image stretch */
+    background: transparent !important; /* Make background blend */
+    box-shadow: none !important;
+    border: none !important;
   }
-  .product-details-image {
+  
+  .product-details-image-container {
     width: 100% !important;
-    max-width: none !important;
+    flex-basis: auto !important;
+    margin: 0 !important;
+  }
+  
+  .product-image-wrapper {
+    border-radius: 0 0 30px 30px !important; /* Organic curve at bottom only */
+    width: 100vw !important;
+    margin-left: -20px !important; /* Negative margin to break out of page padding */
+    margin-right: -20px !important;
+    margin-top: -20px !important;
+    max-height: 50vh;
+  }
+  
+  .product-image-wrapper img {
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* We need to re-add background/padding to the text part below the image */
+  .product-details-container > div:nth-child(2) {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   }
   
   /* Floating Button */
