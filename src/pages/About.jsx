@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import './About.css';
 
 const slidesData = [
@@ -96,11 +97,19 @@ const PaperSlide = ({ slide, index, progress }) => {
 
 const About = () => {
   const containerRef = useRef(null);
+  const navigate = useNavigate();
   
   // Track the scroll progress of the entire container
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
+  });
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    // Navigate to rewards/products when we scroll all the way to the end
+    if (latest >= 0.99) {
+      navigate('/rewards');
+    }
   });
 
   return (
@@ -128,3 +137,4 @@ const About = () => {
 };
 
 export default About;
+
