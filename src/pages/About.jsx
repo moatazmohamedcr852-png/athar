@@ -1,35 +1,90 @@
 import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCards, Pagination, Navigation, Autoplay } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/effect-cards';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+import './About.css';
 
 const About = () => {
   return (
-    <div className="animate-fade-in" style={{padding: '60px 5%', maxWidth: '900px', margin: '0 auto'}}>
-      
-      <div style={{textAlign: 'center', marginBottom: '50px'}}>
-        <h2 className="hero-title" style={{fontSize: '48px', marginBottom: '20px'}}>عن <span className="text-gold">أثر</span></h2>
-        <p className="hero-subtitle" style={{maxWidth: '700px', margin: '0 auto'}}>
-          أثر ليس مجرد متجر، بل هو مبادرة بيئية تهدف إلى إعادة صياغة مفهوم الاستهلاك. نحن نؤمن بأن الجمال يمكن أن ينبع من الأشياء المهملة.
-        </p>
+    <div className="about-container animate-fade-in">
+      <div className="about-header">
+        <h2 className="hero-title">عن <span className="text-gold">أثر</span></h2>
       </div>
 
-      <div style={{display: 'flex', flexDirection: 'column', gap: '40px'}}>
-        <div style={{background: 'var(--white)', padding: '40px', borderRadius: '30px', boxShadow: '0 10px 30px rgba(0,0,0,0.03)', border: '1px solid rgba(67, 68, 32, 0.05)'}}>
-          <h3 style={{fontSize: '28px', color: 'var(--olive-dark)', marginBottom: '20px', borderBottom: '2px dashed var(--beige)', paddingBottom: '10px', display: 'inline-block'}}>مهمتنا 🌍</h3>
-          <p style={{fontSize: '18px', color: 'var(--olive-medium)', lineHeight: '1.8'}}>
-            مهمتنا هي تقليل النفايات الورقية التي تضر ببيئتنا من خلال تحويلها إلى قطع ديكور فنية وعملية. كل منتج في أثر يمثل خطوة نحو مستقبل أكثر استدامة واخضراراً.
-          </p>
-        </div>
+      <div className="swiper-container-wrapper">
+        <Swiper
+          effect={'cards'}
+          grabCursor={true}
+          pagination={{ clickable: true }}
+          navigation={true}
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: false,
+          }}
+          modules={[EffectCards, Pagination, Navigation, Autoplay]}
+          className="about-swiper"
+          dir="rtl"
+        >
+          <SwiperSlide className="about-slide">
+            <div className="slide-content">
+              <h3>من نحن؟</h3>
+              <p>
+                "أثر" هي مبادرة تصميم مستدامة تعمل على تحويل الورق المهمل إلى ديكورات منزلية ومنتجات عملية عالية الجودة ومصنوعة يدويًا. نحن نؤمن بأن النفايات ليست نهاية رحلة المنتج، بل هي بداية لشيء جديد.
+              </p>
+            </div>
+          </SwiperSlide>
 
-        <div style={{background: 'var(--white)', padding: '40px', borderRadius: '30px', boxShadow: '0 10px 30px rgba(0,0,0,0.03)', border: '1px solid rgba(67, 68, 32, 0.05)'}}>
-          <h3 style={{fontSize: '28px', color: 'var(--olive-dark)', marginBottom: '20px', borderBottom: '2px dashed var(--beige)', paddingBottom: '10px', display: 'inline-block'}}>قيمنا 🌿</h3>
-          <ul style={{fontSize: '18px', color: 'var(--olive-medium)', lineHeight: '1.8', listStyleType: 'none', padding: 0}}>
-            <li style={{marginBottom: '15px'}}><span className="text-gold" style={{fontWeight: 'bold', marginLeft: '10px'}}>الاستدامة:</span> البيئة أولاً في كل قرار نتخذه.</li>
-            <li style={{marginBottom: '15px'}}><span className="text-gold" style={{fontWeight: 'bold', marginLeft: '10px'}}>الحرفية:</span> نصنع كل قطعة يدوياً بحب واهتمام بأدق التفاصيل.</li>
-            <li style={{marginBottom: '15px'}}><span className="text-gold" style={{fontWeight: 'bold', marginLeft: '10px'}}>الابتكار:</span> نبحث دائماً عن طرق جديدة لاستغلال المواد المهملة.</li>
-            <li style={{marginBottom: '15px'}}><span className="text-gold" style={{fontWeight: 'bold', marginLeft: '10px'}}>المجتمع:</span> نكافئ عملاءنا (شركاء النجاح) من خلال نظام النقاط لدعمهم المستمر.</li>
-          </ul>
-        </div>
+          <SwiperSlide className="about-slide">
+            <div className="slide-content">
+              <h3>مهمتنا</h3>
+              <p>
+                تتمثل مهمتنا في مواجهة التحديات البيئية من خلال منح الورق المُتخلص منه محليًا حياة ثانية عبر الحرفية الابتكارية والإنتاج المستدام. ومن خلال جمع نفايات الورق من الحرم الجامعي والمجتمعات المحلية، وتحويلها إلى عجينة ورق (باپيه ماشيه) عالية الجودة، ثم تشكيلها إلى منتجات مصنوعة بعناية، تصنع "أثر" رحلة دائرية مكتملة من النفايات إلى القيمة.
+              </p>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide className="about-slide">
+            <div className="slide-content">
+              <h3>الاستدامة والتصميم</h3>
+              <p>
+                في "أثر"، تسير الاستدامة والتصميم يدًا بيد. تُبنى عملية الإنتاج لدينا حول مبادئ الاقتصاد الدائري، والمصادر المحلية، وممارسات الخلو من النفايات، والحرفية الإبداعية. يتيح لنا ذلك تقليل الأثر البيئي مع خلق منتجات فريدة تتميز بالطابع، والهدف، والقيمة المستدامة.
+              </p>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide className="about-slide">
+            <div className="slide-content">
+              <h3>رؤيتنا</h3>
+              <p>
+                تتجاوز رؤيتنا مجرد تقديم ديكورات مستدامة؛ إذ نهدف إلى بناء مجتمع يشارك فيه الأفراد بفعالية في الاقتصاد الدائري. ومن خلال نقاط الجمع وبرنامج الولاء الخاص بنا، يمكن للعملاء المساهمة بأوراقهم المستعملة والحصول على مكافآت، مما يساعد في تحويل النفايات إلى مورد مشترك.
+              </p>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide className="about-slide">
+            <div className="slide-content">
+              <h3>نقطة التلاقي</h3>
+              <p>
+                تمثل "أثر" نقطة التلاقي بين المسؤولية البيئية، والإبداع، والابتكار. انطلاقًا من مجتمع جامعة بدر بنواحي (BNU)، نبني نموذجًا قابلًا للتوسع بطموح أن نصبح رائدًا إقليميًا في مجال المستلزمات المنزلية المستدامة والمُعاد تدويرها.
+              </p>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide className="about-slide highlight-slide">
+            <div className="slide-content flex-center">
+              <h2 className="text-gold highlight-text">
+                أثر — نحول التحديات البيئية إلى تصميمات مستدامة.
+              </h2>
+            </div>
+          </SwiperSlide>
+
+        </Swiper>
       </div>
-      
     </div>
   );
 };
